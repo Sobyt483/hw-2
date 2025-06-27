@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/* styles.css */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu {
+    display: flex;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        transform: translateY(-150%);
+        /* The transition property is REMOVED from here to prevent the resize glitch */
+    }
+
+    .menu.open {
+        transform: translateY(0);
+        /* The transition property is ADDED here, so it only animates on open */
+        transition: transform 0.3s ease;
+    }
+}
